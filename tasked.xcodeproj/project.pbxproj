@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		FA2DCD5D2CD68D6200AE5C3A /* tasked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = tasked.app; path = "/Users/zheer/projects/swift/tasked/build/Debug-iphoneos/tasked.app"; sourceTree = "<absolute>"; };
+		FA5C587D2CD7AF2800E0550D /* tasked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tasked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -33,6 +33,7 @@
 			isa = PBXGroup;
 			children = (
 				FA2DCD5F2CD68D6200AE5C3A /* tasked */,
+				FA5C587D2CD7AF2800E0550D /* tasked.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,7 +59,7 @@
 			packageProductDependencies = (
 			);
 			productName = tasked;
-			productReference = FA2DCD5D2CD68D6200AE5C3A /* tasked.app */;
+			productReference = FA5C587D2CD7AF2800E0550D /* tasked.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

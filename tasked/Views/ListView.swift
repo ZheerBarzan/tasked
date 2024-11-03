@@ -8,12 +8,23 @@
 import SwiftUI
 
 struct ListView: View {
+    
+    @State var items: [String] =
+    ["this is my first task",
+    "this is my second task",
+    "this is my third task"]
     var body: some View {
         List{
-            HStack{
-                
+            ForEach(items, id: \.self){
+                items in ListRowView(title: items)
             }
-        }.navigationTitle("To Do List ✅")
+        }
+        .navigationTitle("To Do List ✅")
+        .navigationBarItems(
+            leading: EditButton(),
+            trailing:
+                NavigationLink("Add", destination: AddView())
+        )
     }
 }
 
@@ -23,3 +34,4 @@ struct ListView: View {
         ListView()
     }
 }
+
