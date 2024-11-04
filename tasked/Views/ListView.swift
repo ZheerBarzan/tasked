@@ -8,18 +8,17 @@
 import SwiftUI
 
 struct ListView: View {
+    @EnvironmentObject var listViewModel: ListViewModel
     
-    @State var items: [ItemModel] =
-    [ItemModel(id: UUID(), title: "Task 1", isCompleted: false),
-     ItemModel(id: UUID(), title: "Task 2", isCompleted: false),
-     ItemModel(id: UUID(), title: "Task 3", isCompleted: false),
-     ItemModel(id: UUID(), title: "Task 4", isCompleted: true)]
     var body: some View {
         List{
-            ForEach(items){
+            ForEach(listViewModel.items){
                 items in ListRowView(item: items)
             }
+            .onDelete(perform: listViewModel.deleteItems)
+            .onMove(perform: listViewModel.moveItems)
         }
+
         .navigationTitle("To Do List ✅")
         .navigationBarItems(
             leading: EditButton(),
@@ -27,12 +26,14 @@ struct ListView: View {
                 NavigationLink("Add", destination: AddView())
         )
     }
+    
+    
 }
 
 #Preview {
     NavigationView{
     
         ListView()
-    }
+    }.environmentObject(ListViewModel())
 }
 
