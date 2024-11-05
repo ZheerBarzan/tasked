@@ -11,6 +11,10 @@ struct AddView: View {
     @Environment(\.presentationMode) var presentation
     @EnvironmentObject var listViewModel: ListViewModel
     @State var textFieldText: String = ""
+    
+    @State var alertTitle:String = ""
+    @State var showAlert: Bool = false
+    
     var body: some View {
         ScrollView{
             VStack {
@@ -31,6 +35,7 @@ struct AddView: View {
             }.padding(14)
             
         }.navigationTitle("Add Task 📌")
+            .alert(isPresented: $showAlert, content: getAlert)
     }
     func saveTask(){
         if validTextField(){
@@ -41,9 +46,14 @@ struct AddView: View {
     
     func validTextField() -> Bool{
         if textFieldText.count < 3 || textFieldText.count > 250 || textFieldText.isEmpty{
+            alertTitle = "Your task must be between 3 and 250 characters and not be empty 😱"
+            showAlert.toggle()
             return false
         }
         return true
+    }
+    func getAlert() -> Alert{
+        return Alert(title: Text(alertTitle))
     }
 }
 
