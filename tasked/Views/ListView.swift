@@ -13,12 +13,15 @@ struct ListView: View {
     var body: some View {
         List{
             ForEach(listViewModel.items){
-                items in ListRowView(item: items)
+                items in ListRowView(item: items).onTapGesture{
+                    withAnimation(.linear){
+                        listViewModel.updateItem(item: items)
+                    }
+                }
             }
             .onDelete(perform: listViewModel.deleteItems)
             .onMove(perform: listViewModel.moveItems)
         }
-
         .navigationTitle("To Do List ✅")
         .navigationBarItems(
             leading: EditButton(),
@@ -26,8 +29,6 @@ struct ListView: View {
                 NavigationLink("Add", destination: AddView())
         )
     }
-    
-    
 }
 
 #Preview {

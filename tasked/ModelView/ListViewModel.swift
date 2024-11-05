@@ -16,6 +16,9 @@ class ListViewModel : ObservableObject{
         getItems()
     }
     
+    
+    
+    // MARK: - CRUD Functionality
     func getItems(){
         let newItems = [
             ItemModel(id: UUID(), title: "Task 1", isCompleted: false),
@@ -34,5 +37,11 @@ class ListViewModel : ObservableObject{
     func addItems(title: String){
         let newItem = ItemModel(id: UUID(), title: title, isCompleted: false)
         items.append(newItem)
+    }
+    func updateItem(item: ItemModel){
+        
+        if let index = items.firstIndex(where: { $0.id == item.id}){
+            items[index] = item.updateCompletion()
+        }
     }
 }
