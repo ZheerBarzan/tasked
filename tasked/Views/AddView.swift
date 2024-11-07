@@ -29,7 +29,7 @@ struct AddView: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame( maxWidth: .infinity)
-                        .background(Color.blue)
+                        .background(Color.accentColor)
                         .cornerRadius(10)
                 })
             }.padding(14)

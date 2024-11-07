@@ -8,21 +8,24 @@ import SwiftUI
 
 struct AnimatedButton: View {
     @Binding var animate: Bool
+    
+    let primaryColor = Color("primary")
+    let secondaryColor = Color("secondary")
 
     var body: some View {
         NavigationLink(destination: AddView(),
                        label: {
-            Text("Add something new")
+            Text("Add something new ")
                 .foregroundColor(.white)
                 .font(.headline)
                 .frame(height: 55)
                 .frame(maxWidth: .infinity)
-                .background(animate ? Color.red : Color.accentColor)
+                .background(animate ? Color.accentColor : secondaryColor)
                 .cornerRadius(10)
         })
         .padding(.horizontal, animate ? 30 : 50)
         .shadow(
-            color: animate ? Color.red.opacity(0.7) : Color.accentColor.opacity(0.7),
+            color: animate ? Color.accentColor.opacity(0.7) : secondaryColor.opacity(0.7),
             radius: animate ? 30 : 10,
             x: 0,
             y: animate ? 50 : 30

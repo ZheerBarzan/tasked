@@ -9,22 +9,22 @@ import SwiftUI
 
 struct ListView: View {
     @EnvironmentObject var listViewModel: ListViewModel
-    
+
     var body: some View {
-        ZStack{
-            if listViewModel.items.isEmpty{
-                Text("no items")
-            }else{
-                List{
-            ForEach(listViewModel.items){
-                items in ListRowView(item: items).onTapGesture{
-                    withAnimation(.linear){
-                        listViewModel.updateItem(item: items)
+        ZStack {
+            if listViewModel.items.isEmpty {
+                NoItemsView().transition(AnyTransition.opacity.animation(.easeIn))
+            } else {
+                List {
+                    ForEach(listViewModel.items) {
+                        items in ListRowView(item: items).onTapGesture {
+                            withAnimation(.linear) {
+                                listViewModel.updateItem(item: items)
+                            }
+                        }
                     }
-                }
-            }
-            .onDelete(perform: listViewModel.deleteItems)
-            .onMove(perform: listViewModel.moveItems)
+                    .onDelete(perform: listViewModel.deleteItems)
+                    .onMove(perform: listViewModel.moveItems)
                 }
             }
         }
@@ -32,15 +32,13 @@ struct ListView: View {
         .navigationBarItems(
             leading: EditButton(),
             trailing:
-                NavigationLink("Add", destination: AddView())
+            NavigationLink("Add", destination: AddView())
         )
     }
 }
 
 #Preview {
-    NavigationView{
-    
+    NavigationView {
         ListView()
     }.environmentObject(ListViewModel())
 }
-
