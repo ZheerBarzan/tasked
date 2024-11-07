@@ -11,7 +11,11 @@ struct ListView: View {
     @EnvironmentObject var listViewModel: ListViewModel
     
     var body: some View {
-        List{
+        ZStack{
+            if listViewModel.items.isEmpty{
+                Text("no items")
+            }else{
+                List{
             ForEach(listViewModel.items){
                 items in ListRowView(item: items).onTapGesture{
                     withAnimation(.linear){
@@ -21,6 +25,8 @@ struct ListView: View {
             }
             .onDelete(perform: listViewModel.deleteItems)
             .onMove(perform: listViewModel.moveItems)
+                }
+            }
         }
         .navigationTitle("To Do List ✅")
         .navigationBarItems(
