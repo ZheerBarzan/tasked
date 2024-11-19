@@ -9,14 +9,13 @@ import SwiftUI
 
 @main
 struct taskedApp: App {
-    
-    @StateObject var listViewModel: ListViewModel = ListViewModel()
+    @StateObject var listViewModel: ListViewModel = .init()
     var body: some Scene {
         WindowGroup {
-            NavigationView{
+            NavigationView {
                 ListView()
-            }.environmentObject(listViewModel)
-            
+            }.navigationViewStyle(StackNavigationViewStyle())
+                .environmentObject(listViewModel)
         }
     }
 }
