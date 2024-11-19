@@ -9,8 +9,7 @@ import SwiftUI
 struct AnimatedButton: View {
     @Binding var animate: Bool
     
-    let primaryColor = Color("primary")
-    let secondaryColor = Color("secondary")
+    let secondaryColor = Color("Color")
 
     var body: some View {
         NavigationLink(destination: AddView(),
