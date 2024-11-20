@@ -31,9 +31,7 @@ struct ListRowView_Previews: PreviewProvider {
     static var previews: some View {
        
         Group{
-            ListRowView(item: item1)
-            ListRowView(item: item2)
-            
+         
         }.previewLayout(.sizeThatFits)
     }
 }

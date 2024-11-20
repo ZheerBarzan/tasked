@@ -30,6 +30,16 @@
                                     <constraint firstAttribute="width" constant="150" id="b9p-wT-MTq"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your task, Your way." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHB-Fv-zmd">
+                                <rect key="frame" x="54" y="517" width="285" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="285" id="Ruk-kp-5GU"/>
+                                    <constraint firstAttribute="height" constant="43" id="w4G-Pg-kih"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" name="AccentColor"/>
@@ -39,6 +49,8 @@
                             <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
                             <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
                             <constraint firstItem="I3t-38-ic7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rBQ-N1-ets"/>
+                            <constraint firstItem="gHB-Fv-zmd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rji-Cv-j8h"/>
+                            <constraint firstItem="gHB-Fv-zmd" firstAttribute="top" secondItem="I3t-38-ic7" secondAttribute="bottom" constant="16" id="uBc-wT-hLk"/>
                         </constraints>
                     </view>
                 </viewController>
